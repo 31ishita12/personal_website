@@ -5,7 +5,7 @@
   const canvas = document.getElementById("field");
   const ctx = canvas.getContext("2d");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const FONT = '"Special Elite", "Courier New", monospace';
+  const FONT = '"American Typewriter", "Cutive", "Courier New", monospace';
   const TAU = Math.PI * 2;
 
   let W, H, wide, ink, accent, dim;
@@ -17,7 +17,7 @@
   const ease = (x) => (x < 0 ? 0 : x > 1 ? 1 : x * x * (3 - 2 * x));
 
   function readColors() {
-    const s = getComputedStyle(document.documentElement);
+    const s = getComputedStyle(canvas.parentElement);
     ink = s.getPropertyValue("--ink").trim();
     accent = s.getPropertyValue("--accent").trim();
     dim = s.getPropertyValue("--dim").trim();
@@ -395,8 +395,8 @@
 
   function resize() {
     const dpr = Math.min(devicePixelRatio || 1, 2);
-    W = innerWidth;
-    H = innerHeight;
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
     wide = W > 820;
     canvas.width = Math.floor(W * dpr);
     canvas.height = Math.floor(H * dpr);
@@ -422,7 +422,7 @@
   function loop(now) {
     const dt = Math.min(0.05, (now - last) / 1000);
     last = now;
-    if (scrollY < innerHeight * 1.4) {
+    if (scrollY < H) {
       time += dt;
       stepCells(dt);
       stepSpectrum(dt);
@@ -431,22 +431,14 @@
     requestAnimationFrame(loop);
   }
 
-  // Let the drawing recede once you scroll into the text.
-  const fade = () => {
-    canvas.style.opacity = Math.max(0.07, 1 - (scrollY / innerHeight) * 1.3).toFixed(3);
-  };
-  addEventListener("scroll", fade, { passive: true });
-
   let rt;
   addEventListener("resize", () => {
     clearTimeout(rt);
     rt = setTimeout(() => { resize(); frame(); }, 200);
   });
-  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { readColors(); frame(); });
 
   readColors();
   resize();
-  fade();
   if (reduce) {
     frame();
     if (document.fonts) document.fonts.ready.then(frame);
@@ -526,4 +518,94 @@
   }
 
   type();
+})();
+
+// ---------- gallery: duplicate each row so the loop is seamless ----------
+(() => {
+  for (const track of document.querySelectorAll(".marquee .track")) {
+    for (const el of [...track.children]) {
+      const copy = el.cloneNode(true);
+      copy.setAttribute("aria-hidden", "true");
+      copy.querySelectorAll("img").forEach((img) => (img.alt = ""));
+      track.append(copy);
+    }
+  }
+})();
+
+// ---------- background: a dot lattice that is mostly in order ----------
+// Slow patches of chaos drift across it, and the pointer scatters nearby
+// dots, which find their places again once it moves on.
+(() => {
+  const canvas = document.getElementById("lattice");
+  const ctx = canvas.getContext("2d");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const S = 26;
+  let W, H, t = 0, mx = -1e4, my = -1e4, sx = -1e4, sy = -1e4, frameNo = 0;
+
+  const smooth = (a, b, x) => {
+    const k = Math.min(1, Math.max(0, (x - a) / (b - a)));
+    return k * k * (3 - 2 * k);
+  };
+
+  function resize() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    W = innerWidth;
+    H = innerHeight;
+    canvas.width = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = "#2a2a2a";
+    const scroll = scrollY * 0.35;
+    for (let y = S / 2; y < H + S; y += S) {
+      for (let x = S / 2; x < W + S; x += S) {
+        const Y = y + scroll;
+        // where chaos lives: a slow field that is mostly below threshold
+        const field =
+          Math.sin(x * 0.006 + t * 0.09) * Math.cos(Y * 0.007 - t * 0.07) +
+          0.6 * Math.sin((x - Y) * 0.004 + t * 0.05);
+        let amp = smooth(0.55, 1.25, field) * 10;
+        const d = Math.hypot(x - sx, y - sy);
+        if (d < 140) amp += (1 - d / 140) ** 2 * 16;
+        if (amp < 0.05) {
+          ctx.fillRect(x - 0.75, y - 0.75, 1.5, 1.5);
+          continue;
+        }
+        const a = Math.sin(x * 0.05 + Y * 0.031 + t * 0.8) * 3 + Math.cos(Y * 0.043 - x * 0.02 - t * 0.6) * 3;
+        ctx.fillRect(x + Math.cos(a) * amp - 0.75, y + Math.sin(a) * amp - 0.75, 1.5, 1.5);
+      }
+    }
+  }
+
+  function loop() {
+    t += 1 / 60;
+    sx += (mx - sx) * 0.08;
+    sy += (my - sy) * 0.08;
+    if (++frameNo % 2 === 0) draw();
+    requestAnimationFrame(loop);
+  }
+
+  addEventListener("pointermove", (e) => {
+    if (sx < -1e3) { sx = e.clientX; sy = e.clientY; }
+    mx = e.clientX;
+    my = e.clientY;
+  }, { passive: true });
+  document.addEventListener("mouseleave", () => { mx = my = -1e4; });
+
+  let rt;
+  addEventListener("resize", () => {
+    clearTimeout(rt);
+    rt = setTimeout(() => { resize(); draw(); }, 200);
+  });
+
+  resize();
+  if (reduce) {
+    draw();
+    addEventListener("scroll", draw, { passive: true });
+  } else {
+    loop();
+  }
 })();

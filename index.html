@@ -8,20 +8,20 @@
   <meta property="og:title" content="Ishita Shreshtha">
   <meta property="og:description" content="PhD researcher in early cancer diagnostics, poet, and organiser at Neill-Wycik.">
   <meta property="og:url" content="https://ishita.shreshtha.com/">
-  <meta name="theme-color" content="#f2efe8" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0b0b0b">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230b0b0b'/><circle cx='16' cy='16' r='9' fill='none' stroke='%23ecebe6' stroke-width='2'/><circle cx='17' cy='15' r='3.5' fill='%23ff3b1f'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cutive&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-  <canvas id="field" aria-hidden="true"></canvas>
+  <canvas id="lattice" aria-hidden="true"></canvas>
 
   <main>
-    <section class="hero">
+    <section class="hero dark">
+      <canvas id="field" aria-hidden="true"></canvas>
       <div class="typed">
         <h1 data-type>Ishita Shreshtha</h1>
         <p data-type>I&rsquo;m doing a PhD in early cancer diagnostics, using spectroscopy and nanotechnology.</p>
@@ -30,7 +30,7 @@
       </div>
     </section>
 
-    <section class="page">
+    <section class="page dark">
       <h2>lately</h2>
       <ul class="plain">
         <li>Spoke at Soapbox Science</li>
@@ -38,6 +38,43 @@
         <li>Wrote poems on the spot for strangers with Poems in Passage</li>
       </ul>
 
+      <figure class="board">
+        <img src="assets/img/some-stranger.webp" width="1500" height="500" loading="lazy"
+             alt="Chalkboard sign in rainbow chalk: Some stranger somewhere remembers you because you were kind to them">
+      </figure>
+    </section>
+
+    <section class="gallery dark" aria-label="gallery">
+      <h2 class="wrap">gallery</h2>
+      <!--
+        To add a photo: put the file in assets/gallery/ and replace one of the
+        empty <figure class="shot empty"> blocks with:
+          <figure class="shot"><img src="assets/gallery/name.jpg" alt="what it shows" loading="lazy"><figcaption>optional caption</figcaption></figure>
+        Photos are split across the two rows; each row scrolls on its own.
+      -->
+      <div class="marquee">
+        <div class="track">
+          <figure class="shot empty tall"></figure>
+          <figure class="shot empty"></figure>
+          <figure class="shot empty wide"></figure>
+          <figure class="shot empty"></figure>
+          <figure class="shot empty tall"></figure>
+          <figure class="shot empty wide"></figure>
+        </div>
+      </div>
+      <div class="marquee reverse">
+        <div class="track">
+          <figure class="shot empty wide"></figure>
+          <figure class="shot empty"></figure>
+          <figure class="shot empty tall"></figure>
+          <figure class="shot empty wide"></figure>
+          <figure class="shot empty"></figure>
+          <figure class="shot empty tall"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="page paper">
       <h2>publications</h2>
       <ol class="pubs">
         <li>
@@ -160,7 +197,9 @@
           <li><a href="https://orderandchaosbyishita.home.blog/2019/03/10/cold-love-a-take-on-toxic-relationship/">Cold Love – A take on Toxic Relationship</a><span class="date">10 mar 2019</span></li>
         </ul>
       </details>
+    </section>
 
+    <section class="page dark contact">
       <h2>contact</h2>
       <ul class="plain">
         <li><a href="mailto:ishitagrad24@gmail.com">ishitagrad24@gmail.com</a></li>

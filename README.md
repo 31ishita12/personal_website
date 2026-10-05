@@ -6,7 +6,22 @@ Source for **https://ishita.shreshtha.com** — a single static page, no build s
 - `assets/style.css` — styles (colors live in `:root`)
 - `assets/main.js` — the opening typed out letter by letter, and the background:
   ink-drawn cells that divide and die, above a Raman spectrum being re-measured
+- `assets/img/` — images used on the page
+- `assets/gallery/` — gallery photos (see below)
 - `CNAME` — tells GitHub Pages which custom domain to serve
+
+## Adding gallery photos
+
+1. Put the photo in `assets/gallery/` (jpg or webp, ideally under ~400 KB).
+2. In `index.html`, find the gallery section and replace one
+   `<figure class="shot empty"></figure>` with:
+
+   ```html
+   <figure class="shot"><img src="assets/gallery/my-photo.jpg" alt="what it shows" loading="lazy"><figcaption>optional caption</figcaption></figure>
+   ```
+
+   Add `tall` or `wide` to the class for portrait or landscape frames
+   (`class="shot tall"`). Captions show on hover; leave `<figcaption>` out for none.
 
 Preview locally: `python3 -m http.server` and open http://localhost:8000.
 
