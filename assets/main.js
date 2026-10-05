@@ -300,6 +300,7 @@
   ];
   const LABELS = [785, 1004, 1340, 1450, 1655];
   const X0 = 600, X1 = 1800, N = 480;
+  const SWEEP_SECONDS = 4.5;
   let scans = [];
   let sweep = 0;
 
@@ -320,7 +321,7 @@
   }
 
   function stepSpectrum(dt) {
-    sweep += dt / 4.5;
+    sweep += dt / SWEEP_SECONDS;
     if (sweep > 1.6) {
       scans.unshift(measure());
       scans.length = Math.min(scans.length, 3);
@@ -401,6 +402,9 @@
     canvas.width = Math.floor(W * dpr);
     canvas.height = Math.floor(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // the typed intro moves at the same speed as the spectrum's scan line
+    const sb = specBox();
+    window.scanSpeed = (sb.x1 - sb.x0) / SWEEP_SECONDS; // px per second
     cells = Array.from({ length: population() }, () => spawn(false));
     // settle positions before the first frame, without triggering events
     for (let i = 0; i < 120; i++) { nextEvent = 99; stepCells(1 / 30); }
@@ -498,22 +502,26 @@
       let word = null;
       for (const ch of text) {
         if (skipped) return finishAll();
+        let width;
         if (ch === " ") {
           word = null;
           cursor.before(document.createTextNode(" "));
+          width = parseFloat(getComputedStyle(el).fontSize) * 0.3;
         } else {
           if (!word) {
             word = document.createElement("span");
             word.className = "w";
             cursor.before(word);
           }
-          word.append(strike(ch));
+          const key = strike(ch);
+          word.append(key);
+          width = key.getBoundingClientRect().width;
         }
-        let delay = (li === 0 ? 110 : 24) * (0.6 + Math.random() * 0.9);
-        if (",.".includes(ch)) delay += 180;
-        await wait(delay);
+        // wait as long as the scan line takes to cover the same width
+        const speed = window.scanSpeed || 120;
+        await wait((width / speed) * 1000 * (0.8 + Math.random() * 0.4));
       }
-      await wait(li === 0 ? 600 : 350);
+      await wait(500);
     }
   }
 

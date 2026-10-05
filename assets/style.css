@@ -241,3 +241,5 @@ summary i { font-style: normal; }
 
 .socials { display: flex; flex-wrap: wrap; gap: 0.6em 1.8em; }
 .socials a::after { content: " ↗"; color: var(--accent); }
+
+h2 .asof { color: var(--dim); }
