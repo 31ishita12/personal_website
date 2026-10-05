@@ -2,11 +2,10 @@
 
 Source for **https://ishita.shreshtha.com** — a single static page, no build step.
 
-- `index.html` — all the words on the page
+- `index.html` — all the words on the page, including the publication and writing lists
 - `assets/style.css` — styles (colors live in `:root`)
-- `assets/main.js` — the generative background: a Peter de Jong attractor
-  (`x' = sin(a·y) − cos(b·x)`, `y' = sin(c·x) − cos(d·y)`) rendered as an ink
-  density map. Click the equation box to re-seed it.
+- `assets/main.js` — the opening typed out letter by letter, and the background:
+  ink-drawn cells that divide and die, above a Raman spectrum being re-measured
 - `CNAME` — tells GitHub Pages which custom domain to serve
 
 Preview locally: `python3 -m http.server` and open http://localhost:8000.

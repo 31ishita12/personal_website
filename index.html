@@ -10,57 +10,162 @@
   <meta property="og:url" content="https://ishita.shreshtha.com/">
   <meta name="theme-color" content="#f2efe8" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230b0b0b'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23ff3b1f' stroke-width='3'/></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230b0b0b'/><circle cx='16' cy='16' r='9' fill='none' stroke='%23ecebe6' stroke-width='2'/><circle cx='17' cy='15' r='3.5' fill='%23ff3b1f'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
   <canvas id="field" aria-hidden="true"></canvas>
 
   <main>
     <section class="hero">
-      <h1>Ishita<br>Shreshtha</h1>
-      <button id="regen" class="equation" type="button" title="draw a new one">
-        x&#8242; = sin(<b>a</b>y) &minus; cos(<b>b</b>x)<br>
-        y&#8242; = sin(<b>c</b>x) &minus; cos(<b>d</b>y)
-        <small id="params"></small>
-      </button>
+      <div class="typed">
+        <h1 data-type>Ishita Shreshtha</h1>
+        <p data-type>I&rsquo;m doing a PhD in early cancer diagnostics, using spectroscopy and nanotechnology.</p>
+        <p data-type>I&rsquo;m a poet. I write for myself and for others, and right now with Poems in Passage.</p>
+        <p data-type>I organise events at Neill-Wycik, the student co-op I live in.</p>
+      </div>
     </section>
 
     <section class="page">
-      <p>
-        I&rsquo;m doing a PhD in early cancer diagnostics, using spectroscopy
-        and nanotechnology.
-      </p>
-      <p>
-        I&rsquo;m a poet. I write for myself and for others, and right now
-        with Poems in Passage.
-      </p>
-      <p>
-        I organise events at Neill&#8209;Wycik, the student co&#8209;op I live in.
-      </p>
-
       <h2>lately</h2>
-      <ul>
+      <ul class="plain">
         <li>Spoke at Soapbox Science</li>
-        <li>Co&#8209;hosted <a href="https://luma.com/2o02fma3">Open Owl Night</a> with Happy Town</li>
+        <li>Co-hosted <a href="https://luma.com/2o02fma3">Open Owl Night</a> with Happy Town</li>
         <li>Wrote poems on the spot for strangers with Poems in Passage</li>
       </ul>
 
-      <h2>elsewhere</h2>
-      <ul class="links">
-        <li><a href="https://www.instagram.com/tiny.poems.co/">poems on instagram</a></li>
-        <li><a href="https://substack.com/@ishitashreshtha/posts">substack</a></li>
-        <li><a href="https://orderandchaosbyishita.home.blog/">order &amp; chaos</a> <span class="dim">(older essays and poems)</span></li>
-        <li><a href="https://scholar.google.ca/citations?user=iH0UxAsAAAAJ&amp;hl=en">google scholar</a></li>
-        <li><a href="https://www.linkedin.com/in/ishita-shreshtha/">linkedin</a></li>
+      <h2>publications</h2>
+      <ol class="pubs">
+        <li>
+          <a href="https://doi.org/10.1016/j.bios.2024.116968">Detection of brain metastases from blood using Brain nanoMET sensor: Extracellular vesicles as a dynamic marker for metastatic brain tumors</a>
+          <span class="authors">Premachandran, S., <b>Shreshtha, I.</b>, Venkatakrishnan, K., Das, S., &amp; Tan, B.</span>
+          <span class="venue">Biosensors and Bioelectronics, 116968 &middot; 2025</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1007/s42535-025-01605-3">Different preparation and characterization techniques of lipid nanoparticle and its application as drug carrier</a>
+          <span class="authors">Kumari, K., <b>Shrestha, I.</b>, Singh, H. R., &amp; Sampath, M. K.</span>
+          <span class="venue">Vegetos &middot; 2025</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.55976/atm.42025138821-39">Explanatory Model of South Asian Newcomer Mother and Canadian-Born Mother Comprehension: A Cross-Sectional</a>
+          <span class="authors">Khajeei, D., Neufeld, H. T., Donelle, L., Neiterman, E., <b>Shreshtha, I.</b>, &amp; Pant, M.</span>
+          <span class="venue">Advances in Translational Medicine, 4(1), 21–39 &middot; 2025</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1080/02648725.2022.2050499">Challenges and opportunities of using immobilized lipase as biosensor</a>
+          <span class="authors">Iyer, M., <b>Shreshtha, I.</b>, Baradia, H., &amp; Chattopadhyay, S.</span>
+          <span class="venue">Biotechnology and Genetic Engineering Reviews, 1–24 &middot; 2022</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1016/B978-0-323-91180-1.00005-3">Integrated biomedical waste degradation and detoxification</a>
+          <span class="authors">Singh, N., <b>Shreshtha, I.</b>, Rishabh, &amp; Nigam, V. K.</span>
+          <span class="venue">Ch. 21 in Integrated Environmental Technologies for Wastewater Treatment and Sustainable Development (Elsevier), 481–508 &middot; 2022</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1007/978-3-030-75289-7_6">Pullulan: Biosynthesis, production and applications</a>
+          <span class="authors">Pandey, S., <b>Shreshtha, I.</b>, &amp; Sachan, S. G.</span>
+          <span class="venue">In Microbial Exopolysaccharides as Novel and Significant Biomaterials (Springer), 121–141 &middot; 2021</span>
+        </li>
+      </ol>
+      <p class="more"><a href="https://scholar.google.ca/citations?user=iH0UxAsAAAAJ&amp;hl=en">google scholar</a></p>
+
+      <h2>essays</h2>
+      <ul class="dated">
+        <li><a href="https://ishitagrad.substack.com/p/of-a-fathers-love">of a father's love</a><span class="date">20 jun 2026</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/some-people">some people</a><span class="date">8 jun 2026</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/romantic-false-positives">romantic false positives</a><span class="date">16 feb 2026</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/yak-fikr">yak fikr (one mind)</a><span class="date">19 jan 2026</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/on-giving-yourself-a-new-chance">on giving yourself a new chance</a><span class="date">13 dec 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/on-deaths-and-breakups">on deaths and breakups</a><span class="date">5 nov 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/do-you-know-your-grandparents-birthday">do you know your grandparent's birthday?</a><span class="date">11 oct 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/seeing-others-with-our-eyes">seeing others with our eyes</a><span class="date">1 oct 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/carrying-the-remnants-of-the-past">carrying the remnants of the past</a><span class="date">23 sep 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/fall-is-here">fall is here</a><span class="date">30 aug 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/reflecting-old-pieces-of-writing">reflecting old pieces of writing</a><span class="date">17 aug 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/deaths-and-endings">deaths and endings</a><span class="date">11 aug 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/the-curse-of-being-left-behind">the curse of being left behind</a><span class="date">17 jul 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/what-grief-can-look-like">what grief can look like</a><span class="date">6 jul 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/home-is-where-the-heart-is">home is where the heart is</a><span class="date">27 may 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/recency-bias-is-a-mf">recency bias is a mf</a><span class="date">18 may 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/reflections-in-the-time-of-war">reflections in the time of war</a><span class="date">11 may 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/current-side-quest-learning-to-find">current side quest: learning to find things that make me happy</a><span class="date">4 may 2025</span></li>
+        <li><a href="https://ishitagrad.substack.com/p/bangalore-a-city-of-dreams">Bangalore — A City of Dreams</a><span class="date">4 may 2025</span></li>
+      </ul>
+      <p class="more"><a href="https://ishitagrad.substack.com/">substack</a></p>
+
+      <h2>poetry</h2>
+      <ul class="plain">
+        <li><a href="https://ishreshtha.notion.site/">a poetry collection</a></li>
+        <li><a href="https://www.instagram.com/tiny.poems.co/">tiny.poems.co</a> on instagram</li>
       </ul>
 
-      <p class="contact">
-        <a href="mailto:ishitagrad24@gmail.com">ishitagrad24@gmail.com</a>
-      </p>
+      <h2>older writing</h2>
+      <details>
+        <summary>51 pieces from <i>order &amp; chaos</i>, 2019&ndash;2024</summary>
+        <ul class="dated">
+          <li><a href="https://orderandchaosbyishita.home.blog/2024/06/16/fathers-day-special-repost/">father’s day special repost</a><span class="date">16 jun 2024</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2023/07/01/securing-financial-support-in-canada-as-a-masters-student/">Securing Financial Support in Canada as a Master’s Student</a><span class="date">1 jul 2023</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2022/09/26/controlling-the-strings-a-tragic-burlesque/">Controlling the Strings: A Tragic Burlesque?</a><span class="date">26 sep 2022</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2022/09/23/the-catastrophic-conundrum-of-coronavirus/">THE CATASTROPHIC CONUNDRUM OF CORONAVIRUS</a><span class="date">23 sep 2022</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2022/06/19/of-fathers-love/">~of father’s love~</a><span class="date">19 jun 2022</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2022/04/04/truth-hurts-more-a-review/">Truth Hurts More: A Review</a><span class="date">4 apr 2022</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2022/04/02/choices-a-review/">Choices: A Review</a><span class="date">2 apr 2022</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2022/04/01/where-is-the-blood-review/">Where is the Blood: Review</a><span class="date">1 apr 2022</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2022/02/21/years-of-love/">~years of love~</a><span class="date">21 feb 2022</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/12/29/oldage/">••old age••</a><span class="date">29 dec 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/12/22/22-birthday/">•things I will tell the world when I turn 22•</a><span class="date">22 dec 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/12/04/prisoners-of-time/">//prisoners of time//</a><span class="date">4 dec 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/09/06/soulful-ambition/">“Soulful Ambition”</a><span class="date">6 sep 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/08/19/mitacs-globalink-research-internship-2022-application-guide/">Mitacs Globalink Research Internship 2023: Application Guide</a><span class="date">19 aug 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/08/09/kriti-creation/">//kriti (creation)//</a><span class="date">9 aug 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/07/11/to-someone-you-never-thought-you-will-love/">An Open Letter To Someone You Never Thought You’ll Fall In Love With</a><span class="date">11 jul 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/07/10/a-rainy-day/">//a rainy day//</a><span class="date">10 jul 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/24/lines-and-lies-of-hope/">lines and lies of hope</a><span class="date">24 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/13/mondays/">//Monday//</a><span class="date">13 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/11/flights-and-faces/">~Flights and Faces~</a><span class="date">11 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/11/nature-pt-2/">~nature pt.2~</a><span class="date">11 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/11/nature-pt-1/">~nature pt. 1~</a><span class="date">11 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/09/random-thoughts-in-lockdown/">RANDOM THOUGHTS IN LOCKDOWN</a><span class="date">9 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/07/books/">//Of Readers and Books//</a><span class="date">7 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/06/hues-of-life/">//Hues of Life//</a><span class="date">6 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/05/whaling-away/">Whaling Away</a><span class="date">5 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/03/patterns/">PATTERNS</a><span class="date">3 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/04/03/alone/">Alone?</a><span class="date">3 apr 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2021/01/16/cottoncandy/">//If Life Could be a Cotton Candy//</a><span class="date">16 jan 2021</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2020/09/03/randomlifemusing/">random life musing</a><span class="date">3 sep 2020</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2020/07/30/tomypast/">//TO THE PAST//</a><span class="date">30 jul 2020</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2020/06/14/scars/">//SCARS//</a><span class="date">14 jun 2020</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2020/05/09/lessonsfromsem3/">TO ANOTHER WEIRD ENDING: LESSONS FROM SEMESTER 3</a><span class="date">9 may 2020</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2020/04/21/of-silences-and-darkness/">//Of Silences and Darkness//</a><span class="date">21 apr 2020</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2020/04/08/melting-happiness/">//MELTING HAPPINESS//</a><span class="date">8 apr 2020</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2020/04/08/of-love-and-hope/">//OF LOVE AND HOPE//</a><span class="date">8 apr 2020</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/12/26/staying/">//STAYING//</a><span class="date">26 dec 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/09/08/flowery-fate/">//FLOWERY FATE//</a><span class="date">8 sep 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/09/06/why-are-you-sad/">//WHY ARE YOU SAD?//</a><span class="date">6 sep 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/06/14/celebrating-myself/">//CELEBRATING MYSELF//</a><span class="date">14 jun 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/05/10/fingers-lips-and-freedom/">//FINGERS, LIPS AND FREEDOM//</a><span class="date">10 may 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/04/09/endeavoursexpectations/">//Endeavours&amp;Expectations//</a><span class="date">9 apr 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/04/02/remember-me-2/">// REMEMBER ME //</a><span class="date">2 apr 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/03/30/look/">//Look//</a><span class="date">30 mar 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/03/29/labels/">//LABELS//</a><span class="date">29 mar 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/03/27/languages/">//Languages//</a><span class="date">27 mar 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/03/24/one-night-stand/">//ONE NIGHT STAND//</a><span class="date">24 mar 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/03/23/parallels/">//PARALLELS//</a><span class="date">23 mar 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/03/17/alliterated-metaphor/">Alliterated Metaphor</a><span class="date">17 mar 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/03/11/can-we-write-in-our-sleep/">Can we write in our sleep?</a><span class="date">11 mar 2019</span></li>
+          <li><a href="https://orderandchaosbyishita.home.blog/2019/03/10/cold-love-a-take-on-toxic-relationship/">Cold Love – A take on Toxic Relationship</a><span class="date">10 mar 2019</span></li>
+        </ul>
+      </details>
+
+      <h2>contact</h2>
+      <ul class="plain">
+        <li><a href="mailto:ishitagrad24@gmail.com">ishitagrad24@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/ishita-shreshtha/">linkedin</a></li>
+      </ul>
     </section>
   </main>
 
