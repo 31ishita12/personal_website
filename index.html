@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ishita Shreshtha</title>
-  <meta name="description" content="Ishita Shreshtha — somewhere between art and science.">
+  <meta name="description" content="Ishita Shreshtha — PhD researcher in early cancer diagnostics, poet, and community organiser. Order, chaos, and the space between.">
   <meta property="og:title" content="Ishita Shreshtha">
-  <meta property="og:description" content="Somewhere between art and science.">
+  <meta property="og:description" content="Scientist. Poet. Organiser. Order, chaos, and the space between.">
   <meta property="og:url" content="https://ishita.shreshtha.com/">
   <meta name="theme-color" content="#f2efe8" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
@@ -18,13 +18,17 @@
 </head>
 <body>
   <canvas id="field" aria-hidden="true"></canvas>
+  <div class="grid-paper" aria-hidden="true"></div>
 
   <header class="bar">
     <a href="#top" class="mark">I/S</a>
     <nav>
-      <a href="#about">about</a>
+      <a href="#now">now</a>
       <a href="#work">work</a>
       <a href="#contact">contact</a>
+      <button id="mode" class="mode" type="button" aria-pressed="false" title="toggle order / chaos">
+        <span class="o">order</span><span class="sep">/</span><span class="c">chaos</span>
+      </button>
     </nav>
   </header>
 
@@ -32,70 +36,120 @@
     <section class="hero">
       <p class="label">fig. 00 &mdash; self&#8209;portrait as a dynamical system</p>
       <h1>
-        <span class="serif">Ishita</span>
-        <span class="mono">Shreshtha<span class="caret">_</span></span>
+        <span class="serif" data-drift>Ishita</span>
+        <span class="mono" data-drift>Shreshtha<span class="caret">_</span></span>
       </h1>
-      <p class="thesis">
-        <em>art</em> <span class="op">&cap;</span> <span class="mono-inline">science</span>
-        <span class="eq">&ne; &empty;</span>
+      <p class="thesis" data-drift>
+        <em>order</em> <span class="op">&harr;</span> <span class="mono-inline">chaos</span>
       </p>
-      <button id="regen" class="equation" type="button" title="click for a new attractor">
-        <span>x&#8242; = sin(<b data-p="a">a</b>y) &minus; cos(<b data-p="b">b</b>x)</span>
-        <span>y&#8242; = sin(<b data-p="c">c</b>x) &minus; cos(<b data-p="d">d</b>y)</span>
+      <p class="roles" data-drift>
+        <span>scientist</span><i>&middot;</i><span><em>poet</em></span><i>&middot;</i><span>organiser</span>
+      </p>
+      <button id="regen" class="equation" type="button" title="click for a new attractor" data-drift>
+        <span>x&#8242; = sin(<b>a</b>y) &minus; cos(<b>b</b>x)</span>
+        <span>y&#8242; = sin(<b>c</b>x) &minus; cos(<b>d</b>y)</span>
         <small id="params">a=&hellip;</small>
-        <small class="hint">[ click to re&#8209;seed ]</small>
+        <small class="hint">[ deterministic rules, unpredictable shape &mdash; click to re&#8209;seed ]</small>
       </button>
     </section>
 
-    <section id="about" class="block">
-      <p class="label">01 / about</p>
-      <div class="grid">
-        <h2>I make things <em>precisely</em><br>and then let them <em>misbehave</em>.</h2>
-        <!-- EDIT: replace with your own bio -->
-        <p>
-          I work in the space where equations turn into images and images turn
-          into questions. Half of me runs experiments; the other half paints
-          over the results. The pattern behind this page is a
-          <span class="mono-inline">de Jong attractor</span> &mdash; four numbers,
-          two lines of math, and something that looks like ink.
-        </p>
+    <section id="now" class="block">
+      <p class="label">01 / currently</p>
+      <h2 class="lead" data-scramble>Three experiments, running in parallel.</h2>
+      <div class="tri">
+        <article class="card" data-drift>
+          <p class="idx">i.</p>
+          <h3 class="mono">Science</h3>
+          <p>
+            PhD research in <strong>early cancer diagnostics</strong>, using
+            <span class="mono-inline">spectroscopy</span> and
+            <span class="mono-inline">nanotechnology</span> to read disease
+            in light before it announces itself.
+          </p>
+          <p class="links">
+            <a href="https://scholar.google.ca/citations?user=iH0UxAsAAAAJ&amp;hl=en">google scholar</a>
+            <a href="https://www.linkedin.com/in/ishita-shreshtha/">linkedin</a>
+          </p>
+        </article>
+        <article class="card" data-drift>
+          <p class="idx">ii.</p>
+          <h3 class="serif">Poetry</h3>
+          <p>
+            I write for myself and for others &mdash; currently with
+            <strong>Poems in Passage</strong>, writing poems on the spot for
+            strangers. Small poems live at <em>tiny.poems.co</em>.
+          </p>
+          <p class="links">
+            <a href="https://www.instagram.com/tiny.poems.co/">instagram</a>
+            <a href="https://substack.com/@ishitashreshtha/posts">substack</a>
+          </p>
+        </article>
+        <article class="card" data-drift>
+          <p class="idx">iii.</p>
+          <h3 class="mixed"><em>Comm</em><span class="mono">unity</span></h3>
+          <p>
+            Organising events at <strong>Neill&#8209;Wycik</strong>, the student
+            co&#8209;op I call home &mdash; turning a building full of
+            strangers into something closer to a village.
+          </p>
+        </article>
       </div>
     </section>
 
+    <section id="recent" class="block">
+      <p class="label">02 / recently</p>
+      <ol class="log">
+        <li data-drift>
+          <span class="tag">talk</span>
+          <span class="what">Speaker at <strong>Soapbox Science</strong></span>
+          <span class="note">science, out loud, on the street</span>
+        </li>
+        <li data-drift>
+          <span class="tag">event</span>
+          <span class="what">Co&#8209;hosted <a href="https://luma.com/2o02fma3"><strong>Open Owl Night</strong></a> with Happy Town</span>
+          <span class="note">toronto</span>
+        </li>
+        <li data-drift>
+          <span class="tag">poetry</span>
+          <span class="what">Wrote poems on the spot for strangers with <strong>Poems in Passage</strong></span>
+          <span class="note">one person, one poem, five minutes</span>
+        </li>
+      </ol>
+    </section>
+
     <section id="work" class="block">
-      <p class="label">02 / work</p>
-      <div class="cols">
-        <div>
-          <h3 class="serif">Art</h3>
-          <!-- EDIT: your art projects -->
-          <ol class="list">
-            <li><span>Series title</span><span class="meta">medium &middot; 2026</span></li>
-            <li><span>Exhibition / project</span><span class="meta">place &middot; 2025</span></li>
-            <li><span>Another piece</span><span class="meta">medium &middot; 2024</span></li>
-          </ol>
+      <p class="label">03 / work</p>
+      <h2 class="lead" data-scramble>Measured. Argued. Felt.</h2>
+      <div class="archive">
+        <div class="shelf" data-kind="publications">
+          <h3 class="mono">Publications</h3>
+          <p class="sub">the measured</p>
+          <ol class="list" id="list-publications"></ol>
         </div>
-        <div>
-          <h3 class="mono">Science</h3>
-          <!-- EDIT: your research / papers / projects -->
-          <ol class="list">
-            <li><span>Research project</span><span class="meta">lab &middot; 2026</span></li>
-            <li><span>Paper or talk title</span><span class="meta">venue &middot; 2025</span></li>
-            <li><span>Tool / dataset</span><span class="meta">github &middot; 2024</span></li>
-          </ol>
+        <div class="shelf" data-kind="essays">
+          <h3 class="serif upright">Essays</h3>
+          <p class="sub">the argued</p>
+          <ol class="list" id="list-essays"></ol>
+        </div>
+        <div class="shelf" data-kind="poems">
+          <h3 class="serif">Poems</h3>
+          <p class="sub">the felt</p>
+          <ol class="list" id="list-poems"></ol>
         </div>
       </div>
     </section>
 
     <section id="contact" class="block">
-      <p class="label">03 / contact</p>
-      <!-- EDIT: put your real links here -->
-      <p class="big">
-        <a href="mailto:hello@shreshtha.com">hello@shreshtha.com</a>
+      <p class="label">04 / contact</p>
+      <p class="big" data-drift>
+        <a href="https://www.linkedin.com/in/ishita-shreshtha/">say hello &rarr;</a>
       </p>
       <p class="links">
-        <a href="https://github.com/31ishita12">github</a>
-        <a href="#">instagram</a>
-        <a href="#">linkedin</a>
+        <a href="https://www.linkedin.com/in/ishita-shreshtha/">linkedin</a>
+        <a href="https://scholar.google.ca/citations?user=iH0UxAsAAAAJ&amp;hl=en">scholar</a>
+        <a href="https://substack.com/@ishitashreshtha/posts">substack</a>
+        <a href="https://www.instagram.com/tiny.poems.co/">instagram</a>
+        <a href="https://orderandchaosbyishita.home.blog/">order &amp; chaos (archive)</a>
       </p>
     </section>
   </main>
@@ -105,6 +159,7 @@
     <span class="coords" id="coords">x 0.000 &nbsp; y 0.000</span>
   </footer>
 
+  <script src="assets/content.js"></script>
   <script src="assets/main.js" defer></script>
 </body>
 </html>

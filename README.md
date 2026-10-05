@@ -2,7 +2,10 @@
 
 Source for **https://ishita.shreshtha.com** — a single static page, no build step.
 
-- `index.html` — content (look for `<!-- EDIT -->` comments)
+- `index.html` — page text (currently / recently / contact)
+- `assets/content.js` — the publications, essays and poems lists; add items here
+- Header toggle **order / chaos**: order shows a faint lab-notebook grid; chaos
+  knocks every element slightly off its grid and re-seeds the attractor
 - `assets/style.css` — styles (colors live in `:root`)
 - `assets/main.js` — the generative background: a Peter de Jong attractor
   (`x' = sin(a·y) − cos(b·x)`, `y' = sin(c·x) − cos(d·y)`) rendered as an ink
