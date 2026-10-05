@@ -10,6 +10,13 @@ Source for **https://ishitashreshtha.com** — a single static page, no build st
 - `assets/gallery/` — gallery photos (see below)
 - `CNAME` — tells GitHub Pages which custom domain to serve
 
+## Security policy
+
+`index.html` has a Content-Security-Policy meta tag: only this site's own files
+and Google Fonts can load, and the one inline `<script>` is allowed by its
+SHA-256 hash. If you change that inline script, update the hash, or the page
+will stop marking itself as JS-enabled.
+
 ## Adding gallery photos
 
 1. Resize the photo to about 720px tall and save it in `assets/gallery/`
