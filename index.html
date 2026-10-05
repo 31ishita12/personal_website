@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ishita Shreshtha</title>
+  <meta name="description" content="Ishita Shreshtha — somewhere between art and science.">
+  <meta property="og:title" content="Ishita Shreshtha">
+  <meta property="og:description" content="Somewhere between art and science.">
+  <meta property="og:url" content="https://ishita.shreshtha.com/">
+  <meta name="theme-color" content="#f2efe8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230b0b0b'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23ff3b1f' stroke-width='3'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <canvas id="field" aria-hidden="true"></canvas>
+
+  <header class="bar">
+    <a href="#top" class="mark">I/S</a>
+    <nav>
+      <a href="#about">about</a>
+      <a href="#work">work</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="label">fig. 00 &mdash; self&#8209;portrait as a dynamical system</p>
+      <h1>
+        <span class="serif">Ishita</span>
+        <span class="mono">Shreshtha<span class="caret">_</span></span>
+      </h1>
+      <p class="thesis">
+        <em>art</em> <span class="op">&cap;</span> <span class="mono-inline">science</span>
+        <span class="eq">&ne; &empty;</span>
+      </p>
+      <button id="regen" class="equation" type="button" title="click for a new attractor">
+        <span>x&#8242; = sin(<b data-p="a">a</b>y) &minus; cos(<b data-p="b">b</b>x)</span>
+        <span>y&#8242; = sin(<b data-p="c">c</b>x) &minus; cos(<b data-p="d">d</b>y)</span>
+        <small id="params">a=&hellip;</small>
+        <small class="hint">[ click to re&#8209;seed ]</small>
+      </button>
+    </section>
+
+    <section id="about" class="block">
+      <p class="label">01 / about</p>
+      <div class="grid">
+        <h2>I make things <em>precisely</em><br>and then let them <em>misbehave</em>.</h2>
+        <!-- EDIT: replace with your own bio -->
+        <p>
+          I work in the space where equations turn into images and images turn
+          into questions. Half of me runs experiments; the other half paints
+          over the results. The pattern behind this page is a
+          <span class="mono-inline">de Jong attractor</span> &mdash; four numbers,
+          two lines of math, and something that looks like ink.
+        </p>
+      </div>
+    </section>
+
+    <section id="work" class="block">
+      <p class="label">02 / work</p>
+      <div class="cols">
+        <div>
+          <h3 class="serif">Art</h3>
+          <!-- EDIT: your art projects -->
+          <ol class="list">
+            <li><span>Series title</span><span class="meta">medium &middot; 2026</span></li>
+            <li><span>Exhibition / project</span><span class="meta">place &middot; 2025</span></li>
+            <li><span>Another piece</span><span class="meta">medium &middot; 2024</span></li>
+          </ol>
+        </div>
+        <div>
+          <h3 class="mono">Science</h3>
+          <!-- EDIT: your research / papers / projects -->
+          <ol class="list">
+            <li><span>Research project</span><span class="meta">lab &middot; 2026</span></li>
+            <li><span>Paper or talk title</span><span class="meta">venue &middot; 2025</span></li>
+            <li><span>Tool / dataset</span><span class="meta">github &middot; 2024</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="block">
+      <p class="label">03 / contact</p>
+      <!-- EDIT: put your real links here -->
+      <p class="big">
+        <a href="mailto:hello@shreshtha.com">hello@shreshtha.com</a>
+      </p>
+      <p class="links">
+        <a href="https://github.com/31ishita12">github</a>
+        <a href="#">instagram</a>
+        <a href="#">linkedin</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="bar foot">
+    <span>&copy; <span id="yr">2026</span> Ishita Shreshtha</span>
+    <span class="coords" id="coords">x 0.000 &nbsp; y 0.000</span>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+</body>
+</html>
