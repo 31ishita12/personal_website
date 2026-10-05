@@ -1,6 +1,6 @@
 # personal_website
 
-Source for **https://ishita.shreshtha.com** — a single static page, no build step.
+Source for **https://ishitashreshtha.com** — a single static page, no build step.
 
 - `index.html` — all the words on the page, including the publication and writing lists
 - `assets/style.css` — styles (colors live in `:root`)
@@ -23,15 +23,15 @@ Source for **https://ishita.shreshtha.com** — a single static page, no build s
    `width` and `height` are the photo's real pixel size. For a caption (shown
    on hover), put `<figcaption>your caption</figcaption>` after the `<img>`.
 
-## Hosting on ishita.shreshtha.com (GitHub Pages)
+## Hosting on ishitashreshtha.com (GitHub Pages)
 
-1. Merge this branch into `main`.
-2. Repo **Settings → Pages**: Source = *Deploy from a branch*, Branch = `main`, folder `/ (root)`.
-3. At the DNS provider for `shreshtha.com`, add a record:
+- **Settings → Pages:** deploy from branch `main`, folder `/ (root)`; custom domain `ishitashreshtha.com`, Enforce HTTPS on.
+- **Namecheap → ishitashreshtha.com → Advanced DNS**:
 
-   | Type  | Name     | Value                   |
-   |-------|----------|-------------------------|
-   | CNAME | `ishita` | `31ishita12.github.io.` |
-
-4. Back in **Settings → Pages**, set the custom domain to `ishita.shreshtha.com`,
-   wait for the DNS check to pass, then tick **Enforce HTTPS**.
+  | Type         | Host  | Value                   |
+  |--------------|-------|-------------------------|
+  | A Record     | `@`   | `185.199.108.153`       |
+  | A Record     | `@`   | `185.199.109.153`       |
+  | A Record     | `@`   | `185.199.110.153`       |
+  | A Record     | `@`   | `185.199.111.153`       |
+  | CNAME Record | `www` | `31ishita12.github.io.` |
