@@ -251,3 +251,6 @@ summary i { font-style: normal; }
   .track { animation: none; }
   .marquee { overflow-x: auto; }
 }
+
+.socials { display: flex; flex-wrap: wrap; gap: 0.6em 1.8em; }
+.socials a::after { content: " ↗"; color: var(--accent); }
