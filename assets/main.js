@@ -7,7 +7,6 @@
   const canvas = document.getElementById("field");
   const ctx = canvas.getContext("2d");
   const paramsEl = document.getElementById("params");
-  const coordsEl = document.getElementById("coords");
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const PRESETS = [
@@ -88,7 +87,7 @@
 
   function showParams() {
     const [a, b, c, d] = params;
-    paramsEl.textContent = `a=${a.toFixed(3)}  b=${b.toFixed(3)}  c=${c.toFixed(3)}  d=${d.toFixed(3)}`;
+    paramsEl.textContent = `a = ${a.toFixed(2)}, b = ${b.toFixed(2)}, c = ${c.toFixed(2)}, d = ${d.toFixed(2)}`;
   }
 
   function step() {
@@ -132,12 +131,12 @@
 
   document.getElementById("regen").addEventListener("click", () => restart(randomParams()));
 
-  addEventListener("pointermove", (e) => {
-    const { s, cx, cy } = layout();
-    const ax = (e.clientX * dpr - cx) / s;
-    const ay = (e.clientY * dpr - cy) / s;
-    coordsEl.textContent = `x ${ax >= 0 ? " " : ""}${ax.toFixed(3)}   y ${ay >= 0 ? " " : ""}${ay.toFixed(3)}`;
-  });
+  // Let the drawing recede once you scroll past the name.
+  const fade = () => {
+    canvas.style.opacity = Math.max(0.1, 1 - (scrollY / innerHeight) * 1.2).toFixed(3);
+  };
+  addEventListener("scroll", fade, { passive: true });
+  fade();
 
   let rt;
   addEventListener("resize", () => {
@@ -150,98 +149,8 @@
     paint();
   });
 
-  document.getElementById("yr").textContent = new Date().getFullYear();
-
   readColors();
   params = PRESETS[(Math.random() * PRESETS.length) | 0];
   resize();
 })();
 
-// ---------- work lists (from assets/content.js) ----------
-(() => {
-  const work = window.WORK || {};
-  for (const kind of ["publications", "essays", "poems"]) {
-    const ol = document.getElementById("list-" + kind);
-    const data = work[kind];
-    if (!ol || !data) continue;
-    for (const it of data.items || []) {
-      const li = document.createElement("li");
-      const title = document.createElement(it.url ? "a" : "span");
-      title.textContent = it.title;
-      if (it.url) title.href = it.url;
-      li.append(title);
-      if (it.meta) {
-        const m = document.createElement("span");
-        m.className = "meta";
-        m.textContent = it.meta;
-        li.append(m);
-      }
-      ol.append(li);
-    }
-    for (const m of [].concat(data.more || [])) {
-      const li = document.createElement("li");
-      li.className = "more";
-      const a = document.createElement("a");
-      a.href = m.url;
-      a.textContent = m.label;
-      li.append(a);
-      ol.append(li);
-    }
-  }
-})();
-
-// ---------- order / chaos ----------
-(() => {
-  const btn = document.getElementById("mode");
-  const drifters = document.querySelectorAll("[data-drift]");
-  const rand = (n) => (Math.random() * 2 - 1) * n;
-
-  btn.addEventListener("click", () => {
-    const chaos = document.body.classList.toggle("chaos");
-    btn.setAttribute("aria-pressed", chaos);
-    if (chaos) {
-      drifters.forEach((el) => {
-        el.style.setProperty("--dx", rand(14).toFixed(1) + "px");
-        el.style.setProperty("--dy", rand(10).toFixed(1) + "px");
-        el.style.setProperty("--rot", rand(2.2).toFixed(2) + "deg");
-      });
-      document.getElementById("regen").click();
-    }
-  });
-})();
-
-// ---------- headings resolve from noise into words ----------
-(() => {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const GLYPHS = "∂∑∫πλΔ≈∞#%&*/<>01";
-  const els = document.querySelectorAll("[data-scramble]");
-
-  const run = (el) => {
-    const final = el.dataset.text;
-    let t = 0;
-    const tick = () => {
-      t += 1;
-      const settled = Math.floor(t / 2);
-      el.textContent = [...final]
-        .map((ch, i) => (ch === " " || i < settled ? ch : GLYPHS[(Math.random() * GLYPHS.length) | 0]))
-        .join("");
-      if (settled < final.length) requestAnimationFrame(tick);
-    };
-    tick();
-  };
-
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) {
-        run(e.target);
-        io.unobserve(e.target);
-      }
-    }
-  }, { threshold: 0.6 });
-
-  els.forEach((el) => {
-    el.dataset.text = el.textContent;
-    el.setAttribute("aria-label", el.textContent);
-    io.observe(el);
-  });
-})();
