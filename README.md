@@ -12,18 +12,16 @@ Source for **https://ishita.shreshtha.com** — a single static page, no build s
 
 ## Adding gallery photos
 
-1. Put the photo in `assets/gallery/` (jpg or webp, ideally under ~400 KB).
-2. In `index.html`, find the gallery section and replace one
-   `<figure class="shot empty"></figure>` with:
+1. Resize the photo to about 720px tall and save it in `assets/gallery/`
+   (webp or jpg, ideally under ~100 KB).
+2. In `index.html`, find the gallery section and add a line to either row:
 
    ```html
-   <figure class="shot"><img src="assets/gallery/my-photo.jpg" alt="what it shows" loading="lazy"><figcaption>optional caption</figcaption></figure>
+   <figure class="shot"><img src="assets/gallery/my-photo.webp" width="540" height="720" alt="what it shows" loading="lazy"></figure>
    ```
 
-   Add `tall` or `wide` to the class for portrait or landscape frames
-   (`class="shot tall"`). Captions show on hover; leave `<figcaption>` out for none.
-
-Preview locally: `python3 -m http.server` and open http://localhost:8000.
+   `width` and `height` are the photo's real pixel size. For a caption (shown
+   on hover), put `<figcaption>your caption</figcaption>` after the `<img>`.
 
 ## Hosting on ishita.shreshtha.com (GitHub Pages)
 

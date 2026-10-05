@@ -520,16 +520,38 @@
   type();
 })();
 
-// ---------- gallery: duplicate each row so the loop is seamless ----------
+// ---------- gallery: repeat each row so the loop is seamless at any width ----------
 (() => {
-  for (const track of document.querySelectorAll(".marquee .track")) {
-    for (const el of [...track.children]) {
-      const copy = el.cloneNode(true);
-      copy.setAttribute("aria-hidden", "true");
-      copy.querySelectorAll("img").forEach((img) => (img.alt = ""));
-      track.append(copy);
-    }
+  const tracks = [...document.querySelectorAll(".marquee .track")];
+  const originals = tracks.map((t) => [...t.children]);
+
+  const clone = (el) => {
+    const c = el.cloneNode(true);
+    c.setAttribute("aria-hidden", "true");
+    c.querySelectorAll("img").forEach((img) => (img.alt = ""));
+    return c;
+  };
+
+  function build() {
+    tracks.forEach((track, i) => {
+      const items = originals[i];
+      track.replaceChildren(...items);
+      // one "unit" must be at least as wide as the screen; the track is two units
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      const setWidth = track.scrollWidth + gap;
+      const reps = Math.max(1, Math.ceil(innerWidth / setWidth));
+      for (let r = 1; r < reps * 2; r++) items.forEach((el) => track.append(clone(el)));
+      // keep the drift at roughly the same speed whatever the width
+      track.style.animationDuration = `${((setWidth * reps) / (i % 2 ? 32 : 38)).toFixed(1)}s`;
+    });
   }
+
+  build();
+  let rt;
+  addEventListener("resize", () => {
+    clearTimeout(rt);
+    rt = setTimeout(build, 250);
+  });
 })();
 
 // ---------- background: a dot lattice that is mostly in order ----------
