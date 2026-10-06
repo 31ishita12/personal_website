@@ -42,3 +42,7 @@ will stop marking itself as JS-enabled.
   | A Record     | `@`   | `185.199.110.153`       |
   | A Record     | `@`   | `185.199.111.153`       |
   | CNAME Record | `www` | `31ishita12.github.io.` |
+
+Every push to `main` publishes the site through the "pages build and deployment"
+run under the repo's Actions tab. If a run is stuck in "queued" and can't be
+cancelled, pushing any new commit to `main` starts a fresh run and replaces it.
