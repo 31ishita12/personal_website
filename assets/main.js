@@ -639,3 +639,38 @@
     loop();
   }
 })();
+
+// ---------- click stats (GoatCounter) ----------
+// Every link that leaves the site is counted as an event named after what
+// it is, e.g. "click: essay — some people" or "click: instagram".
+(() => {
+  const kinds = [
+    [/ishitagrad\.substack\.com\/p\//, "essay"],
+    [/substack\.com/, "substack"],
+    [/orderandchaosbyishita/, "older writing"],
+    [/doi\.org/, "publication"],
+    [/scholar\.google/, "google scholar"],
+    [/notion\.site/, "poetry collection"],
+    [/instagram\.com/, "instagram"],
+    [/linkedin\.com/, "linkedin"],
+    [/(^|\/\/)(www\.)?x\.com/, "x"],
+    [/luma\.com/, "event"],
+    [/torontomu\.ca/, "soapbox science"],
+    [/^mailto:/, "email"],
+  ];
+
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a[href]");
+    if (!a || !window.goatcounter || !window.goatcounter.count) return;
+    const href = a.getAttribute("href");
+    if (!/^(https?:|mailto:)/.test(href)) return;
+    const kind = (kinds.find(([re]) => re.test(href)) || [, "link"])[1];
+    const text = a.textContent.replace(/\s+/g, " ").trim().slice(0, 80);
+    const repeat = ["essay", "older writing", "publication", "event", "soapbox science"].includes(kind);
+    window.goatcounter.count({
+      path: repeat ? `click: ${kind} — ${text}` : `click: ${kind}`,
+      title: href,
+      event: true,
+    });
+  });
+})();
