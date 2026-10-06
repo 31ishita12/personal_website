@@ -17,6 +17,15 @@ and Google Fonts can load, and the one inline `<script>` is allowed by its
 SHA-256 hash. If you change that inline script, update the hash, or the page
 will stop marking itself as JS-enabled.
 
+## Visit and click stats
+
+Stats are at **https://31ishita12.goatcounter.com** (GoatCounter, no cookies).
+Visits are counted by the script at the bottom of `index.html`; clicks on links
+that leave the site are counted by the "click stats" block at the end of
+`assets/main.js` and show up as events such as `click: instagram` or
+`click: essay — some people`. The security policy allows GoatCounter's two
+domains (`gc.zgo.at` and `31ishita12.goatcounter.com`).
+
 ## Adding gallery photos
 
 1. Resize the photo to about 720px tall and save it in `assets/gallery/`
