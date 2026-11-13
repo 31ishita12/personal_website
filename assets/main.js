@@ -490,8 +490,26 @@
     return s;
   };
 
+  // The whole intro finishes in about 15 seconds on any screen: pauses take
+  // about 2s, so the letters share about 11.5s (timer overhead fills the rest), wider letters taking longer.
+  const TYPE_SECONDS = 11.5;
+  const LINE_PAUSE = 400;
+
+  function textWidth() {
+    const ctx = document.createElement("canvas").getContext("2d");
+    let total = 0;
+    lines.forEach((el, i) => {
+      const cs = getComputedStyle(el);
+      ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      total += ctx.measureText(texts[i]).width;
+    });
+    return total;
+  }
+
   async function type() {
     await wait(500);
+    // px per second, never slower than the time budget allows
+    const speed = Math.max((window.scanSpeed || 120) * 1.5, textWidth() / TYPE_SECONDS);
     for (let li = 0; li < lines.length; li++) {
       const el = lines[li];
       const text = texts[li];
@@ -517,11 +535,9 @@
           word.append(key);
           width = key.getBoundingClientRect().width;
         }
-        // wait as long as the scan line takes to cover the same width
-        const speed = window.scanSpeed || 120;
         await wait((width / speed) * 1000 * (0.8 + Math.random() * 0.4));
       }
-      await wait(500);
+      await wait(LINE_PAUSE);
     }
   }
 
